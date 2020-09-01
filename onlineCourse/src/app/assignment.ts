@@ -2,5 +2,5 @@ export interface Assignment {
   id: number;
   title: string;
   description: string;
-  // questions: array;
+  questions: { qid: number; type: string; question: string; choices: (string | boolean)[][]; }[];
 }

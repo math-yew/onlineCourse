@@ -1,11 +1,22 @@
 <h1>Assignment</h1>
 
-<h2>Assignments</h2>
-<ul>
-  <li *ngFor="let assignment of assignmentList">
-    {{assignment.title}}
-  </li>
-</ul>
+<h2>{{assignmentList[0].title}}</h2>
+<h3>{{assignmentList[0].description}}</h3>
+<div *ngFor="let question of assignmentList[0].questions">
+  <p>{{question.qid}}. {{question.question}}</p>
+  <input type="checkbox" name="{{question.qid}}">
+  <label for="{{question.qid}}">{{question.choices[0][0]}}</label>
+
+  <input type="checkbox" name="{{question.qid}}">
+  <label for="{{question.qid}}">{{question.choices[1][0]}}</label>
+
+  <input type="checkbox" name="{{question.qid}}">
+  <label for="{{question.qid}}">{{question.choices[2][0]}}</label>
+
+  <input type="checkbox" name="{{question.qid}}">
+  <label for="{{question.qid}}">{{question.choices[3][0]}}</label>
+</div>
+
 
 <h2>Students</h2>
 <ul>
