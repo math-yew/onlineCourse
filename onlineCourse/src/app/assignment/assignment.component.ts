@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+import { AssignmentsService } from '../assignments.service';
 import { Assignment } from "../assignment";
-import { ASSIGNMENTLIST } from "../assignmentList";
+import { Student } from "../student";
+
 
 @Component({
   selector: 'app-assignment',
@@ -10,13 +12,28 @@ import { ASSIGNMENTLIST } from "../assignmentList";
 })
 export class AssignmentComponent implements OnInit {
 
-  constructor() { }
+  assignmentList: Assignment[];
+  studentList: Student[];
+
+  constructor(private assignmentService: AssignmentsService) { }
 
   ngOnInit(): void {
+    this.getAssignments();
+    this.getStudents();
   }
-  assignmentList = ASSIGNMENTLIST;
 
-  // console.log("Hello");
+potato:string = "chips";
+
+  getAssignments(): void{
+    this.assignmentService.getAssignments()
+      .subscribe(a => this.assignmentList = a);
+  }
+
+  getStudents(): void{
+    this.assignmentService.getStudents()
+      .subscribe(s => this.studentList = s)
+  }
+
 }
 
 console.log("HI");
