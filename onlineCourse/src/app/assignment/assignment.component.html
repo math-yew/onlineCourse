@@ -3,26 +3,15 @@
 <h2>{{assignmentList[0].title}}</h2>
 <h3>{{assignmentList[0].description}}</h3>
 <div *ngFor="let question of assignmentList[0].questions">
-  <p>{{question.qid}}. {{question.question}}</p>
-  <input type="checkbox" name="{{question.qid}}">
-  <label for="{{question.qid}}">{{question.choices[0][0]}}</label>
-
-  <input type="checkbox" name="{{question.qid}}">
-  <label for="{{question.qid}}">{{question.choices[1][0]}}</label>
-
-  <input type="checkbox" name="{{question.qid}}">
-  <label for="{{question.qid}}">{{question.choices[2][0]}}</label>
-
-  <input type="checkbox" name="{{question.qid}}">
-  <label for="{{question.qid}}">{{question.choices[3][0]}}</label>
+  <label id="example-radio-group-label">{{question.qid}}. {{question.question}}</label>
+  <mat-radio-group
+  aria-labelledby="example-radio-group-label"
+  class="example-radio-group"
+  [(ngModel)]="question.answer">
+    <mat-radio-button class="example-radio-button" *ngFor="let choice of question.choices" [value]="choice">
+      {{choice}}
+    </mat-radio-button>
+  </mat-radio-group>
 </div>
 
-
-<h2>Students</h2>
-<ul>
-  <li *ngFor="let student of studentList">
-    {{student.name}}
-  </li>
-</ul>
-
-<p>{{potato}}</p>
+<button (click)="submitAssignment()" id="submit button">Submit</button>

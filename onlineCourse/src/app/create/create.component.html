@@ -1,0 +1,31 @@
+<h1>Create Assignment</h1>
+
+<p>Title: <input [(ngModel)]="questionList.title" /></p>
+<p>Description: <input [(ngModel)]="questionList.description" /></p>
+<p>Instruction: <input [(ngModel)]="questionList.instruction" /></p>
+<p>Video Link: <input [(ngModel)]="questionList.videoLink" /></p>
+
+<br/>
+<br/>
+
+<div *ngFor="let question of questionList.questions">
+  <label id="example-radio-group-label">{{question.question}}</label>
+  <mat-radio-group
+  aria-labelledby="example-radio-group-label"
+  class="example-radio-group"
+  [(ngModel)]="question.answer">
+    <mat-radio-button class="example-radio-button" *ngFor="let choice of question.choices" [value]="choice">
+      {{choice}}
+    </mat-radio-button>
+  </mat-radio-group>
+</div>
+
+<p>Question: <input [(ngModel)]="questionObj.question" /></p>
+<p>Correct Answer: <input [(ngModel)]="questionObj.correctAnswer" /></p>
+<p>Choice 1: <input [(ngModel)]="choice1" /></p>
+<p>Choice 2: <input [(ngModel)]="choice2" /></p>
+<p>Choice 3: <input [(ngModel)]="choice3" /></p>
+<p>Choice 4: <input [(ngModel)]="choice4" /></p>
+
+
+<button (click)="add()" id="add">Add</button>

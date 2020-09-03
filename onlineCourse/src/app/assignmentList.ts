@@ -8,15 +8,19 @@ export const ASSIGNMENTLIST: Assignment[] = [
     questions: [
       {
         qid: 1,
-        type: "multiple",
         question: "What kind of bread?",
-        choices: [["Rye", false],["Sourdough", false],["White", true],["Flatbread",false]]
+        correctAnswer: "White",
+        answer: "",
+        choices: ["Rye", "Sourdough", "White", "Flatbread"]
+        // choices: [["Rye", false],["Sourdough", false],["White", true],["Flatbread",false]]
       },
       {
         qid: 2,
-        type: "multiple",
         question: "What subastance accompanies the PB?",
-        choices: [["User Discretion", true],["Jam", false],["Jelly", false],["Honey",false]]
+        correctAnswer: "User Discretion",
+        answer: "",
+        choices: ["User Discretion", "Jam", "Jelly", "Honey"]
+        // choices: [["User Discretion", true],["Jam", false],["Jelly", false],["Honey",false]]
       }
     ]
   },
@@ -27,9 +31,11 @@ export const ASSIGNMENTLIST: Assignment[] = [
     questions: [
       {
         qid: 1,
-        type: "multiple",
+        correctAnswer: "Either",
+        answer: "",
         question: "Which foot first?",
-        choices: [["Left", false],["Rigth", false],["Either", true],["Nether",false]]
+        choices: ["Left", "Rigth", "Either", "Neither"]
+        // choices: [["Left", false],["Rigth", false],["Either", true],["Nether",false]]
       }
     ]
   }
