@@ -7,7 +7,7 @@ import { AssignmentListComponent } from './assignment-list/assignment-list.compo
 
 const routes: Routes = [
   { path: '', redirectTo: '/assignment', pathMatch: 'full'},
-  { path: 'assignment', component: AssignmentComponent },
+  { path: 'assignment/:id', component: AssignmentComponent },
   { path: 'assignmentList', component: AssignmentListComponent },
   { path: 'create', component: CreateComponent }
 ];

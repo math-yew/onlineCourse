@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { AssignmentsService } from '../assignments.service';
+
 @Component({
   selector: 'app-create',
   templateUrl: './create.component.html',
@@ -7,12 +9,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateComponent implements OnInit {
 
-  // title: string;
-  // description: string;
-  // instruction: string;
-  // videoLink: string;
-  // question: string;
-  // correctAnswer: string;
   choice1: string;
   choice2: string;
   choice3: string;
@@ -32,22 +28,19 @@ export class CreateComponent implements OnInit {
     choices: string[];
   }
 
-  constructor() { }
+  constructor(
+    private assignmentService: AssignmentsService
+  ) { }
 
   ngOnInit(): void {
     this.questionList = {
-      title: "mm",
-      description: "mm",
-      instruction: "mm",
-      videoLink: "mm",
+      title: "Title",
+      description: "Description",
+      instruction: "Write your instructions here.",
+      videoLink: "Youtube video link",
       questions: []
     };
 
-    // this.questionObj=  {
-    //   question: "mm",
-    //   correctAnswer: "mm",
-    //   choices: [this.choice1,this.choice2,this.choice3,this.choice4]
-    // };
     this.clear();
   }
 
@@ -67,9 +60,15 @@ export class CreateComponent implements OnInit {
   add(): void{
     let obj = {...this.questionObj};
     obj.choices = [this.choice1,this.choice2,this.choice3,this.choice4];
-    this.questionList.questions.push(obj);
-    console.log("OBJECT: " + JSON.stringify(this.questionList));
-    this.clear();
+    if(!!obj.question && !!obj.correctAnswer && !!this.choice1 && !!this.choice2 && !!this.choice3 && !!this.choice4) {
+      this.questionList.questions.push(obj);
+      console.log("OBJECT: " + JSON.stringify(this.questionList));
+      this.clear();
+    }
+
   }
 
+  createAssignment(): void{
+    this.assignmentService.createAssignment(this.questionList);
+  }
 }

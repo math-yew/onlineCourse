@@ -20,4 +20,8 @@ export class AssignmentsService {
   getStudents(): Observable<Student[]>{
     return of(STUDENTLIST);
   }
+
+  createAssignment(a): void{
+    ASSIGNMENTLIST.push(a);
+  }
 }

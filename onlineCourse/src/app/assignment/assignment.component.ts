@@ -13,7 +13,7 @@ import { Student } from "../student";
 })
 export class AssignmentComponent implements OnInit {
 
-  assignmentList: Assignment[];
+  assignmentList: Assignment;
   turnedIn: any;
   studentList: Student[];
   studentName: string = "Matt";
@@ -29,12 +29,14 @@ export class AssignmentComponent implements OnInit {
     this.getStudents();
   }
 
-potato:string = "chips";
-
   getAssignments(): void{
+
+    console.log("CONST ID: " + this.route.snapshot.paramMap.get("id"))
+    const id: any = this.route.snapshot.paramMap.get("id");
     this.assignmentService.getAssignments()
       .subscribe(a => {
-        this.assignmentList = a;
+        this.assignmentList = a[id - 1];
+        console.log("ASSIGNMENT LIST: " + JSON.stringify(this.assignmentList))
       });
   }
 
@@ -44,12 +46,10 @@ potato:string = "chips";
   }
 
   submitAssignment(): void{
-    this.turnedIn = this.assignmentList[0];
+    this.turnedIn = this.assignmentList;
     this.turnedIn.student = this.studentName;
-    // for(let question of this.turnedIn.questions){
-    //   console.log(question.qid + question.answer);
-    // }
-    this.turnedIn.questions = this.assignmentList[0].questions.map(q => delete q.choices);
+
+    this.turnedIn.questions = this.assignmentList.questions.map(q => delete q.choices);
     console.log("turnedIn 1: " + this.turnedIn.questions[0].turnedIn);
     console.log("answer 2: " + this.turnedIn.questions[0].answer);
     console.log("student: " + this.turnedIn.questions[0].answer);

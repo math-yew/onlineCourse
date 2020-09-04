@@ -1,1 +1,8 @@
-<p>assignment-list works!</p>
+<h1>Assignments</h1>
+
+
+<div *ngFor="let assignment of assignmentList">
+  <a routerLink="/assignment/{{assignment.id}}">
+      {{assignment.title}}
+    </a>
+</div>

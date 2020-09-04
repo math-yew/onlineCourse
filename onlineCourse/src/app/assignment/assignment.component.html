@@ -1,8 +1,8 @@
 <h1>Assignment</h1>
 
-<h2>{{assignmentList[0].title}}</h2>
-<h3>{{assignmentList[0].description}}</h3>
-<div *ngFor="let question of assignmentList[0].questions">
+<h2>{{assignmentList.title}}</h2>
+<h3>{{assignmentList.description}}</h3>
+<div *ngFor="let question of assignmentList.questions">
   <label id="example-radio-group-label">{{question.qid}}. {{question.question}}</label>
   <mat-radio-group
   aria-labelledby="example-radio-group-label"
