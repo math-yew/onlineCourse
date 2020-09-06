@@ -15,6 +15,7 @@ export class CreateComponent implements OnInit {
   choice4: string;
 
   questionList: {
+    id: number;
     title: string;
     description: string;
     instruction: string;
@@ -23,6 +24,7 @@ export class CreateComponent implements OnInit {
   };
 
   questionObj: {
+    qid: number;
     question: string;
     correctAnswer: string;
     choices: string[];
@@ -34,6 +36,7 @@ export class CreateComponent implements OnInit {
 
   ngOnInit(): void {
     this.questionList = {
+      id: 0,
       title: "Title",
       description: "Description",
       instruction: "Write your instructions here.",
@@ -46,6 +49,7 @@ export class CreateComponent implements OnInit {
 
   clear(): void{
     this.questionObj=  {
+      qid: 0,
       question: "",
       correctAnswer: "",
       choices: [""]
@@ -60,6 +64,7 @@ export class CreateComponent implements OnInit {
   add(): void{
     let obj = {...this.questionObj};
     obj.choices = [this.choice1,this.choice2,this.choice3,this.choice4];
+    obj.qid = this.questionList.questions.length + 1;
     if(!!obj.question && !!obj.correctAnswer && !!this.choice1 && !!this.choice2 && !!this.choice3 && !!this.choice4) {
       this.questionList.questions.push(obj);
       console.log("OBJECT: " + JSON.stringify(this.questionList));
