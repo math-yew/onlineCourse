@@ -2,9 +2,12 @@ import { Injectable } from '@angular/core';
 import {Observable, of} from 'rxjs';
 
 import { Assignment } from "./assignment";
+import { Result } from "./result";
 import { Student } from "./student";
 import { ASSIGNMENTLIST } from "./assignmentList";
+import { RESULTSLIST } from "./resultsList";
 import { STUDENTLIST } from "./studentList";
+
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +21,10 @@ export class AssignmentsService {
     return of(ASSIGNMENTLIST);
   }
 
+  getResults(): Observable<Result[]>{
+    return of(RESULTSLIST);
+  }
+
   getStudents(): Observable<Student[]>{
     return of(STUDENTLIST);
   }
@@ -27,5 +34,9 @@ export class AssignmentsService {
     a.id = ASSIGNMENTLIST.length + 1;
       console.log("a.id post: " + a.id);
     ASSIGNMENTLIST.push(a);
+  }
+
+  submitAssignment(r): void{
+    RESULTSLIST.push(r);
   }
 }

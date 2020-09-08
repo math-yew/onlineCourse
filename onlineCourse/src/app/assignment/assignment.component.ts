@@ -49,16 +49,16 @@ export class AssignmentComponent implements OnInit {
     this.turnedIn = this.assignmentList;
     this.turnedIn.student = this.studentName;
 
-    this.turnedIn.questions = this.assignmentList.questions.map(q => delete q.choices);
-    console.log("turnedIn 1: " + this.turnedIn.questions[0].turnedIn);
-    console.log("answer 2: " + this.turnedIn.questions[0].answer);
-    console.log("student: " + this.turnedIn.questions[0].answer);
-    console.log("student: " + this.turnedIn.questions[0].choices[0]);
-    // this.assignmentService.submitAssignment(this.calc);
+    let correctNumber = 0;
+    this.assignmentList.questions.map(q => {
+      delete q.choices;
+      if(q.answer == q.correctAnswer) correctNumber++;
+    });
+    this.turnedIn.grade = correctNumber/this.assignmentList.questions.length;
+    console.log("turnedIn: " + JSON.stringify(this.turnedIn));
 
-  // const id = this.route.snapshot.paramMap.get("id");
-  // this.calcService.updateCalc(id)
-  //   .subscribe(calc => this.setVariables(calc));
+    this.assignmentService.submitAssignment(this.turnedIn);
+      // .subscribe(calc => this.setVariables(calc));
 }
 
 }
