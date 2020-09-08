@@ -21,7 +21,7 @@ export class AssignmentsService {
     return of(ASSIGNMENTLIST);
   }
 
-  getResults(): Observable<Result[]>{
+  getResultsList(): Observable<Result[]>{
     return of(RESULTSLIST);
   }
 

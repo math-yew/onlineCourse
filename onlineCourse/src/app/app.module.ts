@@ -9,13 +9,15 @@ import { AssignmentComponent } from './assignment/assignment.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CreateComponent } from './create/create.component';
 import { AssignmentListComponent } from './assignment-list/assignment-list.component';
+import { ResultsListComponent } from './results-list/results-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AssignmentComponent,
     CreateComponent,
-    AssignmentListComponent
+    AssignmentListComponent,
+    ResultsListComponent
   ],
   imports: [
     FormsModule,
