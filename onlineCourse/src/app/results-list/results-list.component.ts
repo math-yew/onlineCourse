@@ -6,7 +6,7 @@ import { Result } from '../result';
 @Component({
   selector: 'app-results-list',
   templateUrl: './results-list.component.html',
-  styleUrls: ['./results-list.component.sass']
+  styleUrls: ['./results-list.component.sass','../app.component.sass']
 })
 export class ResultsListComponent implements OnInit {
 

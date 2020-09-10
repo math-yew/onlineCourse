@@ -9,7 +9,7 @@ import { Student } from "../student";
 @Component({
   selector: 'app-assignment',
   templateUrl: './assignment.component.html',
-  styleUrls: ['./assignment.component.sass']
+  styleUrls: ['./assignment.component.sass','../app.component.sass']
 })
 export class AssignmentComponent implements OnInit {
 

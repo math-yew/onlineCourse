@@ -5,7 +5,7 @@ import { AssignmentsService } from '../assignments.service';
 @Component({
   selector: 'app-create',
   templateUrl: './create.component.html',
-  styleUrls: ['./create.component.sass']
+  styleUrls: ['./create.component.sass','../app.component.sass']
 })
 export class CreateComponent implements OnInit {
 

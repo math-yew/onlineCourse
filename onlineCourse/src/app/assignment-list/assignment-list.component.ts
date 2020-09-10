@@ -6,7 +6,7 @@ import { AssignmentsService } from '../assignments.service';
 @Component({
   selector: 'app-assignment-list',
   templateUrl: './assignment-list.component.html',
-  styleUrls: ['./assignment-list.component.sass']
+  styleUrls: ['./assignment-list.component.sass','../app.component.sass']
 })
 export class AssignmentListComponent implements OnInit {
 
@@ -17,7 +17,7 @@ export class AssignmentListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getAssignments()
+    this.getAssignments();
   }
 
   getAssignments(): void{

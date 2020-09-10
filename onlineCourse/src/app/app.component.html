@@ -1,6 +1,10 @@
 <nav>
-  <a routerLink="/assignmentList">Assignment List</a>
-  <a routerLink="/create">Create</a>
-  <a routerLink="/resultsList">Results List</a>
+  <ul>
+    <li><a routerLink="/create">Create</a></li>
+    <li><a routerLink="/assignmentList">Assignment List</a></li>
+    <li><a routerLink="/resultsList">Results List</a></li>
+  </ul>
 </nav>
-<router-outlet></router-outlet>
+<div class="mainBody">
+  <router-outlet></router-outlet>
+</div>

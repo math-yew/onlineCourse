@@ -1,9 +1,13 @@
-body
-  margin:30px
-  color:green
+$darkBlue: #557A95
+$lightBlue: #7395AE
+
+// font: 400 14px/20px Roboto, "Helvetica Neue", sans-serif
+
+a
+  color: $darkBlue
 
 h1
-  color: #00c
+  color: #5D5C61
   text-align: center
 
 .example-radio-group
@@ -13,3 +17,64 @@ h1
 
 .example-radio-button
   margin: 5px
+
+ul
+  list-style-type: none
+  margin: 0
+  padding: 0
+  overflow: hidden
+  background-color: #B1A296
+
+li
+  float: left
+
+li a
+  display: block
+  color: white
+  text-align: center
+  padding: 14px 16px
+  text-decoration: none
+
+li a:hover
+  background-color: $darkBlue
+
+input
+  padding: 6px 6px
+  margin: 6px 0
+  box-sizing: border-box
+
+.whole
+  width:100%
+  position: relative
+  float: none
+
+.half
+  width: 45%
+  float: left
+
+.example-radio-group
+  display: flex
+  flex-direction: column
+  margin: 15px 0
+
+.example-radio-button
+  margin: 5px
+
+.dotted
+  border: dotted thick #c1a3ff
+  border-radius: 10px
+
+.addBox
+  background-color: $lightBlue
+  padding: 20px
+  border-radius: 10px
+
+button
+  background-color: $darkBlue
+  border: solid thin white
+  color: white
+  padding: 8px
+  text-align: center
+  text-decoration: none
+  display: inline-block
+  font-size: 16px
